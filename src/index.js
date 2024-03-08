@@ -21,7 +21,7 @@ app.get("/", async (req, res, next) => {
   });
 });
 
-app.get("/leads", async (req, res, next) => {
+app.get("/api/leads", async (req, res, next) => {
   const result = await crud.getLeads();
   return res.status(200).json({
     message: "Hello from path!",
@@ -29,7 +29,7 @@ app.get("/leads", async (req, res, next) => {
   });
 });
 
-app.post("/leads", async (req, res, next) => {
+app.post("/api/leads", async (req, res, next) => {
   const postData = await req.body;
   const { data, hasError, message } = await leadValidator(postData);
   if (hasError) {
