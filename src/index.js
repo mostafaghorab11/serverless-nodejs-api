@@ -16,7 +16,6 @@ app.get("/", async (req, res, next) => {
   const [results] = await db`select now();`;
   const delta = (results.now.getTime() - now) / 1000;
   return res.status(200).json({
-    message: "Hello from root!",
     delta: delta,
     stage: STAGE,
   });
